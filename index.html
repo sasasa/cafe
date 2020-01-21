@@ -126,5 +126,26 @@
     document.querySelector('html').classList.toggle('open');
   }
   </script>
+  <script>
+  if(!document.currentScript) {
+    var ie1 = document.createElement('script');
+    ie1.src = 'ie/css-var-polyfill.js';
+    document.head.appendChild(ie1);
+    
+    var ie2 = document.createElement('script');
+    ie2.src = 'ie/ofi.min.js';
+    document.head.appendChild(ie2);
+    
+    var ie3 = document.createElement('script');
+    var ie3Text = document.createTextNode('window.onload=function(){objectFitImages();}');
+    ie3.appendChild(ie3Text);
+    document.head.appendChild(ie3);
+    
+    var ie4 = document.createElement('style');
+    var ie4Text = document.createTextNode('img {font-family: "object-fit: cover";}');
+    ie4.appendChild(ie4Text);
+    document.head.appendChild(ie4);
+  }
+  </script>
 </body>
 </html>
